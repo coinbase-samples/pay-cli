@@ -30,7 +30,7 @@ Build the application:
 Next, run
 
 ```bash
-make start
+make build
 ```
 
 to create build the application binary in the `/usr/local/bin/`
@@ -49,11 +49,13 @@ pay
 
 ## Examples
 
-Obtain by config and buy options
+Obtain the available options for buying Crypto with CBPay.
 
 ```bash
 pay buy --options --country US
 ```
+
+Obtain the list of countries supported by Coinbase Pay, and the payment methods available in each country.
 
 ```bash
 pay buy --config
