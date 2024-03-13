@@ -8,8 +8,6 @@ import (
 	"github.com/coinbase-samples/pay-sdk-go"
 )
 
-var config bool
-var options bool
 var cid string
 var sid string
 var address string
@@ -54,6 +52,18 @@ func TransactionToJson(r *pay.TransactionResponse) {
 		log.Fatalf("error marshalling response into JSON: %s \n. pay response: %v", err, r)
 	}
 	fmt.Printf("transaction: %s", string(j))
+}
+
+func ConfigToJson(s []byte) {
+
+	config := &pay.ConfigData{}
+	json.Unmarshal(s, &config)
+	j, err := json.MarshalIndent(config, "", " ")
+	if err != nil {
+		log.Fatalf("error marshalling response into JSON: %s \n. pay response: %v", err, j)
+	}
+	fmt.Printf("config: %s", string(j))
+
 }
 
 var SessionDescription = `Onramp Session command returns a unique string that can be passed into the Pay SDK to initialize the onramp widget. 
