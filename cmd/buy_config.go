@@ -27,7 +27,7 @@ var configCmd = &cobra.Command{
 		if err != nil {
 			fmt.Print(err)
 		}
-		print(config)
+		fmt.Print(config)
 
 	},
 }
