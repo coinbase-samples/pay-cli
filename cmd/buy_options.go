@@ -18,12 +18,16 @@ var optionsCmd = &cobra.Command{
 		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
 
-		resp, err := sdk.Client.BuyOptions(ctx, countryId, &subdivisionId)
+		buyOptions, err := sdk.Client.BuyOptions(ctx, countryId, &subdivisionId)
 		if err != nil {
 			fmt.Printf("error retrieving Buy Options %s", err)
 			return
 		}
-		OptionsToJSON(resp)
+		resp, err := ResponseToJson(cmd, buyOptions)
+		if err != nil {
+			fmt.Print(err)
+		}
+		fmt.Printf(resp)
 
 	},
 }

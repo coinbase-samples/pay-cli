@@ -29,12 +29,16 @@ var quoteCmd = &cobra.Command{
 			Subdivision:      &subid,
 		}
 
-		resp, err := sdk.Client.BuyQuote(ctx, payload)
+		buyQuote, err := sdk.Client.BuyQuote(ctx, payload)
 		if err != nil {
 			fmt.Printf("error fetching buy quote: %s", err)
 			return
 		}
-		QuoteToJson(resp)
+		resp, err := ResponseToJson(cmd, buyQuote)
+		if err != nil {
+			fmt.Print(err)
+		}
+		fmt.Printf(resp)
 	},
 }
 

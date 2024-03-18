@@ -2,6 +2,7 @@ package cli
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"time"
 
@@ -33,7 +34,11 @@ var txCmd = &cobra.Command{
 		if err != nil {
 			log.Fatalf("could not get transaction status")
 		}
-		TransactionToJson(r)
+		resp, err := ResponseToJson(cmd, r)
+		if err != nil {
+			fmt.Print(err)
+		}
+		fmt.Printf(resp)
 	},
 }
 

@@ -36,7 +36,11 @@ var sessionCmd = &cobra.Command{
 			fmt.Printf("failed to get session token: %s\n", err)
 			return
 		}
-		TokenToJson(token)
+		resp, err := ResponseToJson(cmd, token)
+		if err != nil {
+			fmt.Print(err)
+		}
+		fmt.Printf(resp)
 	},
 }
 
