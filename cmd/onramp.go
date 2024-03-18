@@ -3,6 +3,7 @@ package cli
 import (
 	"context"
 	"fmt"
+	"log"
 	"time"
 
 	"github.com/coinbase-samples/pay-cli/sdk"
@@ -36,7 +37,8 @@ var onrampCmd = &cobra.Command{
 
 		url, err := sdk.Client.GenerateOnRampUrl(ctx, o)
 		if err != nil {
-			fmt.Print(err)
+			log.Print(err)
+			return
 		}
 
 		fmt.Println("Generated URL:", url)

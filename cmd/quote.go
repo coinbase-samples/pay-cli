@@ -31,7 +31,8 @@ var quoteCmd = &cobra.Command{
 
 		resp, err := sdk.Client.BuyQuote(ctx, payload)
 		if err != nil {
-			log.Fatalf("error fetching buy quote: %s", err)
+			log.Printf("error fetching buy quote: %s", err)
+			return
 		}
 		QuoteToJson(resp)
 	},
