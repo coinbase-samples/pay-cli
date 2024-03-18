@@ -8,8 +8,8 @@ import (
 	"github.com/coinbase-samples/pay-sdk-go"
 )
 
-var cid string
-var sid string
+var countryId string
+var subdivisionId string
 var address string
 var blockchains []string
 var assets []string
