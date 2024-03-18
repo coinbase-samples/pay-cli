@@ -23,7 +23,11 @@ var configCmd = &cobra.Command{
 			fmt.Printf("error obtaining buy config %s", err)
 			return
 		}
-		ConfigToJson(resp)
+		config, err := ConfigToJson(resp)
+		if err != nil {
+			fmt.Print(err)
+		}
+		print(config)
 
 	},
 }

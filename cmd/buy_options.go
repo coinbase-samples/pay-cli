@@ -27,7 +27,7 @@ var optionsCmd = &cobra.Command{
 		if err != nil {
 			fmt.Print(err)
 		}
-		fmt.Printf(resp)
+		fmt.Print(resp)
 
 	},
 }
