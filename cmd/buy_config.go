@@ -20,7 +20,8 @@ var configCmd = &cobra.Command{
 
 		resp, err := sdk.Client.BuyConfig(ctx)
 		if err != nil {
-			log.Fatalf("error obtaining buy config %s", err)
+			log.Printf("error obtaining buy config %s", err)
+			return
 		}
 		ConfigToJson(resp)
 
