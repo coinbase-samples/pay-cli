@@ -36,4 +36,6 @@ func init() {
 	rootCmd.AddCommand(optionsCmd)
 	optionsCmd.Flags().StringVarP(&countryId, "country", "c", "", "set the country code")
 	optionsCmd.Flags().StringVarP(&subdivisionId, "sub", "s", "", "set the subdivision")
+	optionsCmd.Flags().StringVarP(&format, "format", "f", "false", "Pass true for formatted JSON. Default is false")
+
 }

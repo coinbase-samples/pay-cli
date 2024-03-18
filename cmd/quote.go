@@ -52,6 +52,7 @@ func init() {
 	quoteCmd.Flags().StringVar(&method, "method", "", "method of purchase")
 	quoteCmd.Flags().StringVar(&country, "country", "", "country of purchase")
 	quoteCmd.Flags().StringVar(&subid, "sub", "", "subdivision of the country")
+	quoteCmd.Flags().StringVarP(&format, "format", "f", "false", "Pass true for formatted JSON. Default is false")
 
 	quoteCmd.MarkFlagRequired("crypto")
 	quoteCmd.MarkFlagRequired("amount")

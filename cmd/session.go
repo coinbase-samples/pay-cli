@@ -50,6 +50,8 @@ func init() {
 	sessionCmd.Flags().StringArrayVar(&blockchains, "chains", nil, "blockchains to allow")
 	sessionCmd.Flags().StringArrayVar(&assets, "assets", nil, "tokens to include in the session")
 	sessionCmd.Flags().StringArrayVar(&networks, "networks", nil, "networks to allow")
+	sessionCmd.Flags().StringVarP(&format, "format", "f", "false", "Pass true for formatted JSON. Default is false")
+
 	sessionCmd.MarkFlagRequired("address")
 
 }

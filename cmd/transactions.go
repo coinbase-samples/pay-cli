@@ -45,6 +45,8 @@ var txCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(txCmd)
 	txCmd.Flags().StringVar(&puid, "puid", "", "partner user id")
+	txCmd.Flags().StringVarP(&format, "format", "f", "false", "Pass true for formatted JSON. Default is false")
+
 	txCmd.MarkFlagRequired("puid")
 
 }

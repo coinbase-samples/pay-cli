@@ -49,6 +49,7 @@ func init() {
 	onrampCmd.Flags().StringVar(&address, "address", "", "destination wallet address")
 	onrampCmd.Flags().StringArrayVar(&blockchains, "blockchains", nil, "blockchains to allow")
 	onrampCmd.Flags().StringArrayVar(&assets, "assets", nil, "blockchains to allow")
+	onrampCmd.Flags().StringVarP(&format, "format", "f", "false", "Pass true for formatted JSON. Default is false")
 
 	onrampCmd.MarkFlagRequired("address")
 	onrampCmd.MarkFlagRequired("blockchains")
