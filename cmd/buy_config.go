@@ -1,3 +1,6 @@
+//to do :
+// add flags
+
 package cli
 
 import (
@@ -23,7 +26,7 @@ var configCmd = &cobra.Command{
 			fmt.Printf("error obtaining buy config %s", err)
 			return
 		}
-		config, err := ConfigToJson(resp)
+		config, err := ConfigToJson(cmd, resp)
 		if err != nil {
 			fmt.Print(err)
 		}
@@ -34,4 +37,6 @@ var configCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(configCmd)
+	configCmd.Flags().StringVarP(&format, "format", "f", "false", "Pass true for formatted JSON. Default is false")
+
 }
