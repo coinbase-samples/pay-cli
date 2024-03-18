@@ -18,9 +18,10 @@ var optionsCmd = &cobra.Command{
 		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
 
-		resp, err := sdk.Client.BuyOptions(ctx, cid, &sid)
+		resp, err := sdk.Client.BuyOptions(ctx, countryId, &subdivisionId)
 		if err != nil {
-			log.Fatalf("error retrieving Buy Options %s", err)
+			log.Printf("error retrieving Buy Options %s", err)
+			return
 		}
 		OptionsToJSON(resp)
 
@@ -29,6 +30,6 @@ var optionsCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(optionsCmd)
-	optionsCmd.Flags().StringVarP(&cid, "country", "c", "", "set the country code")
-	optionsCmd.Flags().StringVarP(&sid, "sub", "s", "", "set the subdivision")
+	optionsCmd.Flags().StringVarP(&countryId, "country", "c", "", "set the country code")
+	optionsCmd.Flags().StringVarP(&subdivisionId, "sub", "s", "", "set the subdivision")
 }
