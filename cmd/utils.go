@@ -3,9 +3,9 @@ package cli
 import (
 	"encoding/json"
 	"fmt"
-	"log"
 
 	"github.com/coinbase-samples/pay-sdk-go"
+	"github.com/spf13/cobra"
 )
 
 var countryId string
@@ -22,47 +22,43 @@ var method string
 var country string
 var subid string
 
-func OptionsToJSON(r *pay.BuyOptionsResponse) {
-	j, err := json.MarshalIndent(r, "", " ")
+func ResponseToJson(cmd *cobra.Command, response interface{}) (string, error) {
+	formatBool, err := CheckFormatFlag(cmd)
 	if err != nil {
-		log.Fatalf("error marshalling response into JSON: %s \n. pay response: %v", err, r)
+		return "", err
 	}
-	fmt.Printf("options: %s", string(j))
+	resp, err := MarshalJSON(response, formatBool)
+	if err != nil {
+		return "", err
+	}
+	return string(resp), nil
 }
 
-func QuoteToJson(r *pay.BuyQuoteResponse) {
-	q, err := json.MarshalIndent(r, "", " ")
+func CheckFormatFlag(cmd *cobra.Command) (bool, error) {
+	formatFlagValue, err := cmd.Flags().GetString("format")
 	if err != nil {
-		log.Fatalf("error marshalling response into JSON: %s \n. pay response: %v", err, r)
+		return false, fmt.Errorf("cannot read format flag: %w", err)
 	}
-	fmt.Printf("quote: %s", string(q))
+	return formatFlagValue == "true", nil
 }
 
-func TokenToJson(t *pay.Token) {
-	j, err := json.MarshalIndent(t, "", " ")
-	if err != nil {
-		log.Fatalf("error marshalling response into JSON: %s \n. pay response: %v", err, t)
+func MarshalJSON(data interface{}, format bool) ([]byte, error) {
+	if format {
+		return json.MarshalIndent(data, "", " ")
 	}
-	fmt.Printf("token: %s", string(j))
+	return json.Marshal(data)
 }
 
-func TransactionToJson(r *pay.TransactionResponse) {
-	j, err := json.MarshalIndent(r, "", " ")
-	if err != nil {
-		log.Fatalf("error marshalling response into JSON: %s \n. pay response: %v", err, r)
-	}
-	fmt.Printf("transaction: %s", string(j))
-}
-
-func ConfigToJson(s []byte) {
+func ConfigToJson(s []byte) (string, error) {
 
 	config := &pay.ConfigData{}
 	json.Unmarshal(s, &config)
 	j, err := json.MarshalIndent(config, "", " ")
 	if err != nil {
-		log.Fatalf("error marshalling response into JSON: %s \n. pay response: %v", err, j)
+		return "", err
+
 	}
-	fmt.Printf("config: %s", string(j))
+	return string(j), nil
 
 }
 
@@ -77,11 +73,11 @@ var ConfigDescription = `View a list of countries supported by Coinbase Pay and 
 examples:
 
 Obtain the list of countries supported by Coinbase Pay, and the payment methods available in each country.
-	- pay buy --config 
+	- pay buyconfig 
 
 Obtain the available payment options for buying Crypto with CBPay:
-	- pay buy --options --country US
-	- pay buy --options --country US --sub NY`
+	- pay buyptions --country US
+	- pay buyoptions --country US --sub NY`
 
 var OnrampDescription = `Onramp generates a URL that is launched by a browser as an alternative to integrating Coinbase Pay through initOnRamp.
 
