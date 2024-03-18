@@ -11,7 +11,7 @@ import (
 
 var configCmd = &cobra.Command{
 	Use:   "buyconfig",
-	Short: "Returns a ist of supported countries, payment methods, currencies and crypto by Coinbase Pay",
+	Short: "Returns a list of supported countries, payment methods, currencies, and crypto by Coinbase Pay.",
 	Long:  ConfigDescription,
 	Run: func(cmd *cobra.Command, args []string) {
 
