@@ -2,7 +2,7 @@ package cli
 
 import (
 	"context"
-	"log"
+	"fmt"
 	"time"
 
 	"github.com/coinbase-samples/pay-cli/sdk"
@@ -20,7 +20,7 @@ var configCmd = &cobra.Command{
 
 		resp, err := sdk.Client.BuyConfig(ctx)
 		if err != nil {
-			log.Printf("error obtaining buy config %s", err)
+			fmt.Printf("error obtaining buy config %s", err)
 			return
 		}
 		ConfigToJson(resp)

@@ -2,6 +2,7 @@ package cli
 
 import (
 	"context"
+	"fmt"
 	"log"
 	"time"
 
@@ -32,7 +33,8 @@ var sessionCmd = &cobra.Command{
 
 		token, err := sdk.Client.GetSessionToken(ctx, d)
 		if err != nil {
-			log.Fatal(err)
+			fmt.Printf("failed to get session token: %s\n", err)
+			return
 		}
 		TokenToJson(token)
 	},

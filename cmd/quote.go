@@ -2,7 +2,7 @@ package cli
 
 import (
 	"context"
-	"log"
+	"fmt"
 	"time"
 
 	"github.com/coinbase-samples/pay-cli/sdk"
@@ -31,7 +31,7 @@ var quoteCmd = &cobra.Command{
 
 		resp, err := sdk.Client.BuyQuote(ctx, payload)
 		if err != nil {
-			log.Printf("error fetching buy quote: %s", err)
+			fmt.Printf("error fetching buy quote: %s", err)
 			return
 		}
 		QuoteToJson(resp)

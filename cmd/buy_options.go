@@ -2,7 +2,7 @@ package cli
 
 import (
 	"context"
-	"log"
+	"fmt"
 	"time"
 
 	"github.com/coinbase-samples/pay-cli/sdk"
@@ -20,7 +20,7 @@ var optionsCmd = &cobra.Command{
 
 		resp, err := sdk.Client.BuyOptions(ctx, countryId, &subdivisionId)
 		if err != nil {
-			log.Printf("error retrieving Buy Options %s", err)
+			fmt.Printf("error retrieving Buy Options %s", err)
 			return
 		}
 		OptionsToJSON(resp)
