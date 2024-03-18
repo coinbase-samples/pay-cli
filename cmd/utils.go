@@ -21,6 +21,7 @@ var payment string
 var method string
 var country string
 var subid string
+var format string
 
 func ResponseToJson(cmd *cobra.Command, response interface{}) (string, error) {
 	formatBool, err := CheckFormatFlag(cmd)
@@ -49,16 +50,15 @@ func MarshalJSON(data interface{}, format bool) ([]byte, error) {
 	return json.Marshal(data)
 }
 
-func ConfigToJson(s []byte) (string, error) {
+func ConfigToJson(cmd *cobra.Command, s []byte) (string, error) {
 
 	config := &pay.ConfigData{}
 	json.Unmarshal(s, &config)
-	j, err := json.MarshalIndent(config, "", " ")
+	resp, err := ResponseToJson(cmd, config)
 	if err != nil {
 		return "", err
-
 	}
-	return string(j), nil
+	return string(resp), err
 
 }
 
