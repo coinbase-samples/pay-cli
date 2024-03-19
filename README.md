@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Pay CLI is a sample Command Line Interface (CLI) application that generates requests to and receives responses from Coinbase Pay's REST APIs. The Pay CLI is written in Go, using [Cobra](https://github.com/spf13/cobra) in conjunction with the [Pay Go SDK](https://github.com/coinbase-samples/pay-sdk-go).
+The Pay CLI is a sample Command Line Interface (CLI) application that generates requests to and receives responses from Coinbase Pay's REST APIs. The Pay CLI is written in Go, using Cobra in conjunction with the [Pay Go SDK](https://github.com/coinbase-samples/pay-sdk-go).
 
 ## License
 
