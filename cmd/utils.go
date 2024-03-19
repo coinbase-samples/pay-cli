@@ -82,7 +82,7 @@ Obtain the available payment options for buying Crypto with CBPay:
 var OnrampDescription = `Onramp generates a URL that is launched by a browser as an alternative to integrating Coinbase Pay through initOnRamp.
 
 example:
-	- pay onramp --address 0x --chains eth --assets usdc
+	- pay onramp --address 0x123 --blockchains eth --assets usdc
 `
 
 var QuoteDescription = `Returns a quote based on the asset the user would like to purchase, the network they plan to purchase it on, the dollar amount of the payment, the payment currency, the payment method, and country of the user.
