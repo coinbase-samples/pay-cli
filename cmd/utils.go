@@ -44,7 +44,7 @@ func ResponseToJson(cmd *cobra.Command, response interface{}) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	resp, err := MarshalJSON(response, formatBool)
+	resp, err := MarshalJson(response, formatBool)
 	if err != nil {
 		return "", err
 	}
@@ -59,7 +59,7 @@ func CheckFormatFlag(cmd *cobra.Command) (bool, error) {
 	return formatFlagValue == "true", nil
 }
 
-func MarshalJSON(data interface{}, format bool) ([]byte, error) {
+func MarshalJson(data interface{}, format bool) ([]byte, error) {
 	if format {
 		return json.MarshalIndent(data, "", " ")
 	}
