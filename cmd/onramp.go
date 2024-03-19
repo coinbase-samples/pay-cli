@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/coinbase-samples/pay-cli/sdk"
 	"github.com/coinbase-samples/pay-sdk-go"
 	"github.com/spf13/cobra"
 )
@@ -20,21 +19,21 @@ var onrampCmd = &cobra.Command{
 		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
 
-		d := pay.DestinationWallet{
+		destinationWallet := pay.DestinationWallet{
 			Address:     address,
 			Blockchains: &blockchains,
 			Assets:      &assets,
 		}
-		p := pay.OnRampAppParams{
-			DestinationWallets: []pay.DestinationWallet{d},
+		params := pay.OnRampAppParams{
+			DestinationWallets: []pay.DestinationWallet{destinationWallet},
 		}
-		o := pay.GenerateOnRampUrlOptions{
-			AppId:           sdk.Client.Credentials.AppId,
-			Host:            &sdk.Client.Host,
-			OnRampAppParams: p,
+		onrampUrl := pay.GenerateOnRampUrlOptions{
+			AppId:           Client.Credentials.AppId,
+			Host:            &Client.Host,
+			OnRampAppParams: params,
 		}
 
-		url, err := sdk.Client.GenerateOnRampUrl(ctx, o)
+		url, err := Client.GenerateOnRampUrl(ctx, onrampUrl)
 		if err != nil {
 			fmt.Printf("failed to generate onramp URL: %s\n", err)
 			return
