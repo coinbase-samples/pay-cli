@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/coinbase-samples/pay-cli/sdk"
 	"github.com/spf13/cobra"
 )
 
@@ -18,7 +17,7 @@ var optionsCmd = &cobra.Command{
 		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
 
-		buyOptions, err := sdk.Client.BuyOptions(ctx, countryId, &subdivisionId)
+		buyOptions, err := Client.BuyOptions(ctx, countryId, &subdivisionId)
 		if err != nil {
 			fmt.Printf("error retrieving Buy Options %s", err)
 			return
@@ -37,5 +36,7 @@ func init() {
 	optionsCmd.Flags().StringVarP(&countryId, "country", "c", "", "set the country code")
 	optionsCmd.Flags().StringVarP(&subdivisionId, "sub", "s", "", "set the subdivision")
 	optionsCmd.Flags().StringVarP(&format, "format", "f", "false", "Pass true for formatted JSON. Default is false")
+
+	optionsCmd.MarkFlagRequired("country")
 
 }
