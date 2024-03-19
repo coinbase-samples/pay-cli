@@ -6,7 +6,6 @@ import (
 	"log"
 	"time"
 
-	"github.com/coinbase-samples/pay-cli/sdk"
 	"github.com/coinbase-samples/pay-sdk-go"
 	"github.com/spf13/cobra"
 )
@@ -30,7 +29,7 @@ var txCmd = &cobra.Command{
 			PageSize:      &ps,
 		}
 
-		r, err := sdk.Client.TransactionStatus(ctx, tx)
+		r, err := Client.TransactionStatus(ctx, tx)
 		if err != nil {
 			log.Fatalf("could not get transaction status")
 		}

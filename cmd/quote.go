@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/coinbase-samples/pay-cli/sdk"
 	"github.com/coinbase-samples/pay-sdk-go"
 	"github.com/spf13/cobra"
 )
@@ -29,7 +28,7 @@ var quoteCmd = &cobra.Command{
 			Subdivision:      &subid,
 		}
 
-		buyQuote, err := sdk.Client.BuyQuote(ctx, payload)
+		buyQuote, err := Client.BuyQuote(ctx, payload)
 		if err != nil {
 			fmt.Printf("error fetching buy quote: %s", err)
 			return

@@ -8,7 +8,6 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/coinbase-samples/pay-cli/sdk"
 	"github.com/spf13/cobra"
 )
 
@@ -21,7 +20,7 @@ var configCmd = &cobra.Command{
 		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 		defer cancel()
 
-		resp, err := sdk.Client.BuyConfig(ctx)
+		resp, err := Client.BuyConfig(ctx)
 		if err != nil {
 			fmt.Printf("error obtaining buy config %s", err)
 			return

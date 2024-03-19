@@ -6,7 +6,6 @@ import (
 	"log"
 	"time"
 
-	"github.com/coinbase-samples/pay-cli/sdk"
 	"github.com/coinbase-samples/pay-sdk-go"
 	"github.com/spf13/cobra"
 )
@@ -31,7 +30,7 @@ var sessionCmd = &cobra.Command{
 			SupportedNetworks: &networks,
 		}
 
-		token, err := sdk.Client.GetSessionToken(ctx, d)
+		token, err := Client.GetSessionToken(ctx, d)
 		if err != nil {
 			fmt.Printf("failed to get session token: %s\n", err)
 			return
