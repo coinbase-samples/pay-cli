@@ -26,19 +26,16 @@ Change directories:
 cd pay-cli
 ```
 
-To build the application, run the following command. This creates the application binary:
+To build the application, run the following command. This creates the application binary iand saves it in `/usr/local/bin/`:
 
 ```bash
 make build
 ```
 
-to create build the application binary in the `/usr/local/bin/`
-
 Alternatively, you may run the following command to build the application:
 
 ```bash
 go build -o ./pay
-
 ```
 
 To verify that your application is installed correctly and accessible from any location, run the following command. It will include all available requests:
@@ -55,19 +52,19 @@ Generate onramp URL
 pay onramp --address 0xB6d00D83158feE6695C72ff9c5E915478A479256 --blockchains base --assets usdc
 ```
 
-Example response
+Example response:
 
 ```bash
 Generated URL: https://pay.coinbase.com/buy/select-asset?appId=39c3d7f8-c205-463b-a54b-4279a5063977&destinationWallets=%5B%7B%22address%22%3A%220xB6d00D83158feE6695C72ff9c5E915478A479256%22%2C%22blockchains%22%3A%5B%22base%22%5D%2C%22assets%22%3A%5B%22usdc%22%5D%7D%5D
 ```
 
-Obtain the available options for buying Crypto with CBPay.
+Obtain the available options for buying crypto with Pay.
 
 ```bash
  pay buyoptions --country US
 ```
 
-Example response (truncated)
+Example response (truncated):
 
 ```json
 {
