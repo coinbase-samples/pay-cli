@@ -25,7 +25,7 @@ import (
 )
 
 var optionsCmd = &cobra.Command{
-	Use:   "buyoptions",
+	Use:   "buyOptions",
 	Short: "Returns a ist of supported countries, payment methods, currencies and crypto by Coinbase Pay",
 	Long:  ConfigDescription,
 	Run: func(cmd *cobra.Command, args []string) {

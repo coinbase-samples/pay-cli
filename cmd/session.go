@@ -27,7 +27,7 @@ import (
 )
 
 var sessionCmd = &cobra.Command{
-	Use:   "session",
+	Use:   "sessionToken",
 	Short: "Generates a Coinbase Pay session key",
 	Long:  SessionDescription,
 	Run: func(cmd *cobra.Command, args []string) {

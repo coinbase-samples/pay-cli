@@ -26,7 +26,7 @@ import (
 )
 
 var quoteCmd = &cobra.Command{
-	Use:   "quote",
+	Use:   "buyQuote",
 	Short: "Obtain a quote for a crypto purchase",
 	Long:  QuoteDescription,
 	Run: func(cmd *cobra.Command, args []string) {

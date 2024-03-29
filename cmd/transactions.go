@@ -31,7 +31,7 @@ var ps int
 var pk string
 
 var txCmd = &cobra.Command{
-	Use:   "tx",
+	Use:   "transactionStatus",
 	Short: "Real time status of a Pay transaction.",
 	Long:  TransactionDescription,
 	Run: func(cmd *cobra.Command, args []string) {
