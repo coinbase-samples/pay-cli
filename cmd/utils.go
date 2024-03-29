@@ -82,33 +82,33 @@ var SessionDescription = `Onramp Session command returns a unique string that ca
 This token is associated with the Destination Wallets and App ID header provided in the request.
 
 example:
-	- pay session --address bc1qrdvlkt8rqsyj229thqzhm0q39edwdj2k7yps6x --chains "bitcoin"`
+	- pay sessionToken --address bc1qrdvlkt8rqsyj229thqzhm0q39edwdj2k7yps6x --chains "bitcoin"`
 
 var ConfigDescription = `View a list of countries supported by Coinbase Pay and the payment methods available in each country. 
 
 examples:
 
 Obtain the list of countries supported by Coinbase Pay, and the payment methods available in each country.
-	- pay buyconfig 
+	- pay buyConfig 
 
 Obtain the available payment options for buying Crypto with CBPay:
-	- pay buyptions --country US
-	- pay buyoptions --country US --sub NY`
+	- pay buyOptions --country US
+	- pay buyOptions --country US --sub NY`
 
 var OnrampDescription = `Onramp generates a URL that is launched by a browser as an alternative to integrating Coinbase Pay through initOnRamp.
 
 example:
-	- pay onramp --address 0x123 --blockchains eth --assets usdc
+	- pay generateOnramp --address 0x123 --blockchains eth --assets usdc
 `
 
 var QuoteDescription = `Returns a quote based on the asset the user would like to purchase, the network they plan to purchase it on, the dollar amount of the payment, the payment currency, the payment method, and country of the user.
 
 example:
-	- pay quote --crypto BTC --amount 100.00 --payment USD --method CARD --country US --network Bitcoin --sub NY `
+	- pay buyQuote --crypto BTC --amount 100.00 --payment USD --method CARD --country US --network Bitcoin --sub NY `
 
 var TransactionDescription = `Provides clients with a list of user CBPay transactions.
 
 exmaple:
-	- pay tx --puid 12
+	- pay transactionStatus --puid 12
 
 `
