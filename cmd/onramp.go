@@ -27,7 +27,7 @@ import (
 
 var onrampCmd = &cobra.Command{
 
-	Use:   "onramp",
+	Use:   "generateOnramp",
 	Short: "Generates an onramp URL",
 	Long:  OnrampDescription,
 	Run: func(cmd *cobra.Command, args []string) {
