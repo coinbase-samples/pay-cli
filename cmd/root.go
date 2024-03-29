@@ -46,7 +46,7 @@ func init() {
 }
 
 func InitClient() {
-	creds, err := pay.SetCredentials()
+	creds, err := pay.SetCredentials("MY_APP_ID_VAR", "MY_API_KEY_VAR")
 	if err != nil {
 		log.Fatalf("error reading environmental variable: %s", err)
 	}
