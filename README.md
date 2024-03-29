@@ -61,7 +61,7 @@ Generated URL: https://pay.coinbase.com/buy/select-asset?appId=39c3d7f8-c205-463
 Obtain the available options for buying crypto with Pay.
 
 ```bash
- pay buyoptions --country US
+ pay buyOptions --country US
 ```
 
 Example response (truncated):
@@ -111,13 +111,13 @@ Example response (truncated):
 Obtain the list of countries supported by Coinbase Pay, and the payment methods available in each country.
 
 ```bash
-pay buyconfig
+pay buyConfig
 ```
 
 Obtain the list of payment methods available for **Finland**.
 
 ```bash
-pay buyconfig --country FI
+pay buyConfig --country FI
 ```
 
 Example response (truncated):
