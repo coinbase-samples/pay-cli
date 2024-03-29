@@ -49,7 +49,7 @@ pay
 Generate onramp URL
 
 ```bash
-pay onramp --address 0xB6d00D83158feE6695C72ff9c5E915478A479256 --blockchains base --assets usdc
+pay generateOnramp --address 0xB6d00D83158feE6695C72ff9c5E915478A479256 --blockchains base --assets usdc
 ```
 
 Example response:
