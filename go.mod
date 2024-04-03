@@ -1,6 +1,7 @@
 module github.com/coinbase-samples/pay-cli
 
 
+
 go 1.20
 
 require (
